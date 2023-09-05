@@ -23,7 +23,7 @@ SRCS_FOLDER =	src/colors.c \
 OBJ = $(SRCS:.c=.o)
 FLAGS = -Wall -Wextra -Werror -g
 
-LIBMLX_FILE = libmlx.dylib
+LIBMLX_FILE = libmlx.a
 LIBMLX_HEADER = mlx
 LIBFT = libft.a
 LIBFT_HEADER = libft
@@ -43,11 +43,10 @@ $(LIBFT):
 	cp libft/libft.a .
 
 $(LIBMLX_FILE):
-	$(MAKE) -C mlx
-	cp mlx/libmlx.dylib .
+	cp mlx/libmlx.a .
 
 clean:
-	rm -f $(OBJ) $(LIBMLX_FILE) $(LIBFT)
+	rm -f $(OBJ) $(LIBFT)
 
 fclean: clean
 	rm -f $(NAME)
